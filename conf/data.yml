@@ -1,3 +1,12 @@
+Assessment(a1):
+  weight: 134
+  chest: 44
+  thigh: 30
+  upperArm: 27
+  waist: 38
+  hips: 42
+  comment: You've made progress
+
 Member(m1):
   name: Homer Simpson
   email: homer@simpson.com
