@@ -1,18 +1,49 @@
 #{extends 'main.html' /}
 #{set title:'Play Gym' /}
 
-#{menu_no_session id:"start"/}
+#{menu_no_session id:"signup"/}
 
-<section class="ui grid center aligned middle aligned segment">
-    <div class="two column row">
-        <div class="column">
+<section class="ui grid basic middle aligned segment">
+    <div class="ui two column row">
+        <div class="ui column stacked segment">
             <h1 class="ui header">
-                BMI Tracker
+                Register
             </h1>
-            <p>
-                Fill in your assessments week by week and track your BMI. Trainers will comment on your progress and
-                encourage you to keep going!
-            </p>
+            <form class="ui form">
+                <div class="ui two fields">
+                    <div class="field">
+                        <label>Name</label>
+                        <input placeholder="Name" type="text" name="name">
+                    </div>
+                    <div class="field">
+                        <label>Gender</label>
+                        <input placeholder="Gender" type="text" name="gender">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Email</label>
+                    <input placeholder="Email" type="text" name="email">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input placeholder="Password" type="password" name="password">
+                </div>
+                <div class="field">
+                    <label>Address</label>
+                    <input placeholder="Address" type="text" name="address">
+                </div>
+                <div class="ui two fields">
+                    <div class="field">
+                        <label>Height</label>
+                        <input placeholder="Height" type="number" name="height">
+                    </div>
+                    <div class="field">
+                        <label>Starting Weight</label>
+                        <input placeholder="Starting Weight" type="number" name="startingWeight">
+                    </div>
+                </div>
+            </form>
+            <button class="ui blue submit button">Submit</button>
         </div>
         <div class="column">
             <img src="/public/images/bmi.jpg">
