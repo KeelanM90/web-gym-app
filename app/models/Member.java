@@ -19,10 +19,10 @@ public class Member extends Model {
     public String name;
     public String email;
     public String password;
-    String address;
-    String gender;
-    double height;
-    double startingWeight;
+    public String address;
+    public String gender;
+    public double height;
+    public double startingWeight;
     
     @OneToMany(cascade = CascadeType.ALL)
     public List<Assessment> assessments = new ArrayList<Assessment>();
