@@ -18,7 +18,7 @@ public class Accounts extends Controller {
     
     public static void logout() {
         session.clear();
-        redirect ("/");
+        redirect("/");
     }
     
     public static void register(String name,
@@ -32,5 +32,19 @@ public class Accounts extends Controller {
         Member member = new Member(name, email, password, address, gender, height, startingWeight);
         member.save();
         redirect("/");
+    }
+    
+    public static void authenticate(String email, String password) {
+        Logger.info("Attempting to authenticate with " + email + ":" + password);
+        
+        Member member = Member.findByEmail(email);
+        if ((member != null) && (member.checkPassword(password) == true)) {
+            Logger.info("Authentication successful");
+            session.put("logged_in_Memberid", member.id);
+            redirect("/dashboard");
+        } else {
+            Logger.info("Authentication failed");
+            redirect("/login");
+        }
     }
 }
