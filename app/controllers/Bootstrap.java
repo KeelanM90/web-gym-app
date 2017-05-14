@@ -12,6 +12,7 @@ public class Bootstrap extends Job
     {
         if (Member.count() == 0)
         {
+            Fixtures.delete();
             Fixtures.loadModels("data.yml");
         }
     }
