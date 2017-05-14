@@ -47,4 +47,16 @@ public class Accounts extends Controller {
             redirect("/login");
         }
     }
+    
+    public static Member getLoggedInMember()
+    {
+        Member member = null;
+        if (session.contains("logged_in_Memberid")) {
+            String memberId = session.get("logged_in_Memberid");
+            member = Member.findById(Long.parseLong(memberId));
+        } else {
+            login();
+        }
+        return member;
+    }
 }

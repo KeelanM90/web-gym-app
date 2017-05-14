@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Dashboard' /}
+
+#{menu id:"dashboard"/}
+
+<table class = "ui table middle aligned segment">
+    <thead>
+    <tr>
+        <th>Weight</th>
+        <th>Chest</th>
+        <th>Thigh</th>
+        <th>Upper Arm</th>
+        <th>Waist</th>
+        <th>Hips</th>
+        <th>Trend</th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    #{list items:assessments, as:'assessment'}
+    <tr>
+        <td>${assessment.weight}</td>
+        <td>${assessment.chest}</td>
+        <td>${assessment.thigh}</td>
+        <td>${assessment.upperArm}</td>
+        <td>${assessment.waist}</td>
+        <td>${assessment.hips}</td>
+        <td></td>
+        <td>${assessment.comment}</td>
+    </tr>
+    #{/list}
+
+    </tbody>
+</table>
+</section>

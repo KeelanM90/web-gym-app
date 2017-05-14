@@ -7,3 +7,4 @@ Member(m1):
   height: 1.83
   startingWeight: 136
   assessments:
+    - a1

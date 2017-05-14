@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                                       start.index
+GET     /dashboard                              Dashboard.index
 GET     /signup                                 Accounts.signup
 GET     /login                                  Accounts.login
 POST    /register                               Accounts.register
