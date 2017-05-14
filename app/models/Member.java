@@ -1,6 +1,9 @@
 package models;
 
+import play.db.jpa.Model;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +14,8 @@ import java.util.List;
  * @author Keelan Murphy
  * @version 2017.04.30
  */
-public class Member {
+@Entity
+public class Member extends Model {
     public String name;
     public String email;
     public String password;

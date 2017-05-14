@@ -1,5 +1,7 @@
 package controllers;
 
+import models.Member;
+import play.Logger;
 import play.mvc.Controller;
 
 /**
@@ -17,5 +19,18 @@ public class Accounts extends Controller {
     public static void logout() {
         session.clear();
         redirect ("/");
+    }
+    
+    public static void register(String name,
+                                String email,
+                                String password,
+                                String address,
+                                String gender,
+                                double height,
+                                double startingWeight) {
+        Logger.info("Registering new user " + email);
+        Member member = new Member(name, email, password, address, gender, height, startingWeight);
+        member.save();
+        redirect("/");
     }
 }

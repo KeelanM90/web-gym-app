@@ -5,7 +5,8 @@
 # Home page
 GET     /                                       start.index
 GET     /signup                                 Accounts.signup
-GET     /login                                 Accounts.login
+GET     /login                                  Accounts.login
+POST    /register                               Accounts.register
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
