@@ -4,10 +4,13 @@
 
 # Home page
 GET     /                                       start.index
+
 GET     /dashboard                              Dashboard.index
+POST    /addAssessment                          Dashboard.addAssessment
+
 GET     /signup                                 Accounts.signup
 GET     /login                                  Accounts.login
-GET     /logout                                  Accounts.logout
+GET     /logout                                 Accounts.logout
 POST    /register                               Accounts.register
 POST    /authenticate                           Accounts.authenticate
 
