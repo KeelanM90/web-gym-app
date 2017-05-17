@@ -3,69 +3,105 @@
 
 #{menu id:"dashboard"/}
 
-
-
-<form class="ui segment form" action="/addAssessment" method="POST">
-    <h3 class="ui header">Add Assessment</h3>
-    <div class="three fields">
-        <div class="field">
-            <label>Weight</label>
-            <input placeholder="00.00kg" type="number" step=".01" name="weight">
-        </div>
-        <div class="field">
-            <label>Chest</label>
-            <input placeholder="00.00cm" type="number" step=".01" name="chest">
-        </div>
-        <div class="field">
-            <label>Thigh</label>
-            <input placeholder="00.00cm" type="number" step=".01" name="thigh">
+<div class="ui raised segment">
+    <div class="ui  center aligned segment">
+        <div class="ui four statistics">
+            <div class="statistic">
+                <div class="value">
+                    <i class="user icon"></i>
+                </div>
+                <div class="label">
+                ${member.name}
+                </div>
+            </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="${member.isIdealBodyWeight()} dashboard icon"></i>
+                </div>
+                <div class="label">
+                    Ideal Weight Indicator
+                </div>
+            </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="heartbeat icon"></i>${member.calculateBMI()}
+                </div>
+                <div class="label">
+                    BMI
+                </div>
+            </div>
+            <div class="statistic">
+                <div class="value">
+                    <i class="doctor icon"></i>
+                </div>
+                <div class="label">
+                ${member.getBMICategory()}
+                </div>
+            </div>
         </div>
     </div>
-    <div class="three fields">
-        <div class="field">
-            <label>Upper Arm</label>
-            <input placeholder="00.00cm" type="number" step=".01" name="upperArm">
-        </div>
-        <div class="field">
-            <label>Waist</label>
-            <input placeholder="00.00cm" type="number" step=".01" name="waist">
-        </div>
-        <div class="field">
-            <label>Hips</label>
-            <input placeholder="00.00cm" type="number" step=".01" name="hips">
-        </div>
-    </div>
-    <button class="ui blue submit button">Add Assessment</button>
-</form>
 
-<table class = "ui table middle aligned segment">
-    <thead>
-    <tr>
-        <th>Weight</th>
-        <th>Chest</th>
-        <th>Thigh</th>
-        <th>Upper Arm</th>
-        <th>Waist</th>
-        <th>Hips</th>
-        <th>Trend</th>
-        <th>Comment</th>
-    </tr>
-    </thead>
-    <tbody>
+    <form class="ui segment form" action="/addAssessment" method="POST">
+        <h3 class="ui header">Add Assessment</h3>
+        <div class="three fields">
+            <div class="field">
+                <label>Weight</label>
+                <input placeholder="00.00kg" type="number" step=".01" name="weight" required>
+            </div>
+            <div class="field">
+                <label>Chest</label>
+                <input placeholder="00.00cm" type="number" step=".01" name="chest" required>
+            </div>
+            <div class="field">
+                <label>Thigh</label>
+                <input placeholder="00.00cm" type="number" step=".01" name="thigh" required>
+            </div>
+        </div>
+        <div class="three fields">
+            <div class="field">
+                <label>Upper Arm</label>
+                <input placeholder="00.00cm" type="number" step=".01" name="upperArm" required>
+            </div>
+            <div class="field">
+                <label>Waist</label>
+                <input placeholder="00.00cm" type="number" step=".01" name="waist" required>
+            </div>
+            <div class="field">
+                <label>Hips</label>
+                <input placeholder="00.00cm" type="number" step=".01" name="hips" required>
+            </div>
+        </div>
+        <button class="ui blue submit button">Add Assessment</button>
+    </form>
 
-    #{list items:assessments, as:'assessment'}
-    <tr>
-        <td>${assessment.weight}</td>
-        <td>${assessment.chest}</td>
-        <td>${assessment.thigh}</td>
-        <td>${assessment.upperArm}</td>
-        <td>${assessment.waist}</td>
-        <td>${assessment.hips}</td>
-        <td></td>
-        <td>${assessment.comment}</td>
-    </tr>
-    #{/list}
+    <table class="ui table middle aligned segment">
+        <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Chest</th>
+            <th>Thigh</th>
+            <th>Upper Arm</th>
+            <th>Waist</th>
+            <th>Hips</th>
+            <th>Trend</th>
+            <th>Comment</th>
+        </tr>
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
-</section>
+        #{list items:assessments, as:'assessment'}
+        <tr>
+            <td>${assessment.weight}</td>
+            <td>${assessment.chest}</td>
+            <td>${assessment.thigh}</td>
+            <td>${assessment.upperArm}</td>
+            <td>${assessment.waist}</td>
+            <td>${assessment.hips}</td>
+            <td></td>
+            <td>${assessment.comment}</td>
+        </tr>
+        #{/list}
+
+        </tbody>
+    </table>
+</div>
