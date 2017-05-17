@@ -36,7 +36,7 @@ public class Dashboard extends Controller
     {
         Member member = Member.findById(memberid);
         Assessment assessment = Assessment.findById(assessmentid);
-        Logger.info ("Removing assessment");
+        Logger.info ("Removing assessment: " + assessment.getDate());
         member.assessments.remove(assessment);
         member.save();
         assessment.delete();
