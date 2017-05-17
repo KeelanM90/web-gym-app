@@ -5,8 +5,7 @@ import play.db.jpa.Model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Models a member
@@ -178,7 +177,7 @@ public class Member extends Model {
     
     public Assessment getLatestAssessment() {
        if (assessments.size() != 0) {
-           return assessments.get(assessments.size() - 1);
+           return sortedAssessments().get(0);
        }
        return null;
     }
@@ -201,5 +200,37 @@ public class Member extends Model {
     {
         double heightInInches = toTwoDecimalPlaces(height * 39.37);
         return heightInInches;
+    }
+    
+    public List<Assessment> sortedAssessments() {
+        List<Assessment> sortedList = new ArrayList<Assessment>(assessments);
+        Collections.sort(sortedList, new Comparator<Assessment>() {
+            @Override
+            public int compare(Assessment assessment1, Assessment assessment2) {
+                return assessment2.epoch.compareTo(assessment1.epoch);
+            }
+        });
+        return sortedList;
+    }
+    
+    public String findTrend(Assessment assessment) {
+        double previousWeight = 0;
+        
+        if (sortedAssessments().indexOf(assessment) != assessments.size() - 1) {
+            previousWeight = sortedAssessments().get(sortedAssessments().indexOf(assessment) + 1).weight;
+        }
+        else {
+            previousWeight = startingWeight;
+        }
+        
+        if (assessment.weight > previousWeight){
+            return "red arrow circle left";
+        }
+        else if (assessment.weight == previousWeight) {
+            return "blue circle";
+        }
+        else {
+            return "green arrow circle right";
+        }
     }
 }

@@ -1,5 +1,5 @@
 Assessment(a1):
-  date: "2017-05-17 18:00:00"
+  epoch: 1495044000000
   weight: 134
   chest: 44
   thigh: 30
@@ -7,6 +7,16 @@ Assessment(a1):
   waist: 38
   hips: 42
   comment: You've made progress
+
+Assessment(a2):
+  epoch: 1493044000000
+  weight: 126
+  chest: 44
+  thigh: 30
+  upperArm: 27
+  waist: 38
+  hips: 42
+  comment:
 
 Member(m1):
   name: Homer Simpson
@@ -18,3 +28,4 @@ Member(m1):
   startingWeight: 136
   assessments:
     - a1
+    - a2

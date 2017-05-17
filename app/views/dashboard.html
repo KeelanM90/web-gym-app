@@ -4,7 +4,7 @@
 #{menu id:"dashboard"/}
 
 <div class="ui raised segment">
-    <div class="ui  center aligned segment">
+    <div class="ui center aligned segment">
         <div class="ui four statistics">
             <div class="statistic">
                 <div class="value">
@@ -91,7 +91,7 @@
         </thead>
         <tbody>
 
-        #{list items:assessments, as:'assessment'}
+        #{list items:member.sortedAssessments(), as:'assessment'}
         <tr>
             <td>${assessment.date}</td>
             <td>${assessment.weight}</td>
@@ -100,7 +100,7 @@
             <td>${assessment.upperArm}</td>
             <td>${assessment.waist}</td>
             <td>${assessment.hips}</td>
-            <td><i class="ui icon law"></i></td>
+            <td><i class="ui big icon ${member.findTrend(assessment)}"></i></td>
             <td>${assessment.comment}</td>
             <td>
                 <a href="/dashboard/${member.id}/deleteassessment/${assessment.id}" class="ui icon button">
