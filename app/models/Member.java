@@ -94,8 +94,11 @@ public class Member extends Model {
         if (weight >= (idealBodyWeight - 2) && weight <= (idealBodyWeight + 2)) {
             return "green";
         }
-        else if (weight >= (idealBodyWeight - 7) && weight <= (idealBodyWeight + 7)) {
+        else if (weight >= (idealBodyWeight - 5) && weight <= (idealBodyWeight + 5)) {
             return "yellow";
+        }
+        else if (weight >= (idealBodyWeight - 8) && weight <= (idealBodyWeight + 8)) {
+            return "orange";
         }
         else {
             return "red";

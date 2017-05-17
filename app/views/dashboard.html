@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <form class="ui segment form" action="/addAssessment" method="POST">
+    <form class="ui segment form" action="/addassessment" method="POST">
         <h3 class="ui header">Add Assessment</h3>
         <div class="three fields">
             <div class="field">
@@ -77,6 +77,7 @@
     <table class="ui table middle aligned segment">
         <thead>
         <tr>
+            <th>Date</th>
             <th>Weight</th>
             <th>Chest</th>
             <th>Thigh</th>
@@ -92,15 +93,20 @@
 
         #{list items:assessments, as:'assessment'}
         <tr>
+            <td></td>
             <td>${assessment.weight}</td>
             <td>${assessment.chest}</td>
             <td>${assessment.thigh}</td>
             <td>${assessment.upperArm}</td>
             <td>${assessment.waist}</td>
             <td>${assessment.hips}</td>
-            <td></td>
+            <td><i class="ui icon law"></i></td>
             <td>${assessment.comment}</td>
-            <td><i class="ui large red trash icon"></i></td>
+            <td>
+                <a href="/dashboard/${member.id}/deleteassessment/${assessment.id}" class="ui icon button">
+                <i class="icon trash"></i>
+            </a>
+            </td>
         </tr>
         #{/list}
 
