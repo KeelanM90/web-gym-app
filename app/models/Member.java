@@ -65,7 +65,13 @@ public class Member extends Model {
      */
     public String isIdealBodyWeight()
     {
-        
+        double weight = 0;
+        if (getLatestAssessment() != null) {
+            weight = getLatestAssessment().weight;
+        }
+        else {
+            weight = startingWeight;
+        }
         
         double genderWeight = 0;
         
@@ -85,11 +91,11 @@ public class Member extends Model {
         }
         
         double idealBodyWeight = genderWeight + ((heightInInches - 60) * 2.3);
-        if (startingWeight >= (idealBodyWeight - 7) && startingWeight <= (idealBodyWeight + 7)){
-            return "yellow";
-        }
-        else if (startingWeight >= (idealBodyWeight - 2) && startingWeight <= (idealBodyWeight + 2)) {
+        if (weight >= (idealBodyWeight - 2) && weight <= (idealBodyWeight + 2)) {
             return "green";
+        }
+        else if (weight >= (idealBodyWeight - 7) && weight <= (idealBodyWeight + 7)) {
+            return "yellow";
         }
         else {
             return "red";
@@ -102,7 +108,14 @@ public class Member extends Model {
      */
     public double calculateBMI()
     {
-        return toTwoDecimalPlaces((startingWeight / height) / height);
+        double weight = 0;
+        if (getLatestAssessment() != null) {
+            weight = getLatestAssessment().weight;
+        }
+        else {
+            weight = startingWeight;
+        }
+        return toTwoDecimalPlaces((weight / height) / height);
     }
     
     /**
@@ -162,7 +175,7 @@ public class Member extends Model {
     
     public Assessment getLatestAssessment() {
        if (assessments.size() != 0) {
-           return assessments.get(assessments.size());
+           return assessments.get(assessments.size() - 1);
        }
        return null;
     }

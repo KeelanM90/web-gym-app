@@ -12,7 +12,7 @@ Member(m1):
   email: homer@simpson.com
   password: secret
   address: Springfield
-  gender: male
+  gender: Male
   height: 1.83
   startingWeight: 136
   assessments:
