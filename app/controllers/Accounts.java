@@ -37,27 +37,24 @@ public class Accounts extends Controller {
     
     public static void authenticate(String email, String password) {
         Logger.info("Attempting to authenticate with " + email + ":" + password);
-    
+        
         Member member = Member.findByEmail(email);
         Trainer trainer = Trainer.findByEmail(email);
         if ((member != null) && (member.checkPassword(password) == true)) {
             Logger.info("Authentication successful");
             session.put("logged_in_Memberid", member.id);
             redirect("/dashboard");
-        }
-        else if ((trainer != null) && (trainer.checkPassword(password) == true)) {
+        } else if ((trainer != null) && (trainer.checkPassword(password) == true)) {
             Logger.info("Authentication successful");
             session.put("logged_in_Trainerid", trainer.id);
-            redirect ("/trainerdashboard");
-        }
-        else {
+            redirect("/trainerdashboard");
+        } else {
             Logger.info("Authentication failed");
             redirect("/login");
         }
     }
     
-    public static Member getLoggedInMember()
-    {
+    public static Member getLoggedInMember() {
         Member member = null;
         if (session.contains("logged_in_Memberid")) {
             String memberId = session.get("logged_in_Memberid");
@@ -68,8 +65,7 @@ public class Accounts extends Controller {
         return member;
     }
     
-    public static Trainer getLoggedInTrainer()
-    {
+    public static Trainer getLoggedInTrainer() {
         Trainer trainer = null;
         if (session.contains("logged_in_Trainerid")) {
             String trainerId = session.get("logged_in_Trainerid");

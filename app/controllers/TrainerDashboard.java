@@ -7,10 +7,8 @@ import play.mvc.Controller;
 
 import java.util.List;
 
-public class TrainerDashboard extends Controller
-{
-    public static void index()
-    {
+public class TrainerDashboard extends Controller {
+    public static void index() {
         Logger.info("Rendering Trainer Dashboard");
         
         Trainer trainer = Accounts.getLoggedInTrainer();

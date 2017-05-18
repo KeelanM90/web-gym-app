@@ -7,10 +7,8 @@ import models.Assessment;
 import play.Logger;
 import play.mvc.Controller;
 
-public class Dashboard extends Controller
-{
-    public static void index()
-    {
+public class Dashboard extends Controller {
+    public static void index() {
         Logger.info("Rendering Dashboard");
         
         Member member = Accounts.getLoggedInMember();
@@ -32,11 +30,10 @@ public class Dashboard extends Controller
         redirect("/dashboard");
     }
     
-    public static void deleteAssessment (Long memberid, Long assessmentid)
-    {
+    public static void deleteAssessment(Long memberid, Long assessmentid) {
         Member member = Member.findById(memberid);
         Assessment assessment = Assessment.findById(assessmentid);
-        Logger.info ("Removing assessment: " + assessment.getDate());
+        Logger.info("Removing assessment: " + assessment.getDate());
         member.assessments.remove(assessment);
         member.save();
         assessment.delete();

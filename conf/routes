@@ -9,6 +9,7 @@ GET     /dashboard                                              Dashboard.index
 GET     /trainerdashboard                                       TrainerDashboard.index
 POST    /addassessment                                          Dashboard.addAssessment
 GET     /dashboard/{memberid}/deleteassessment/{assessmentid}   Dashboard.deleteAssessment
+GET     /viewassessments/{memberid}                               ViewAssessments.index
 
 GET     /profile                                                Profile.index
 
