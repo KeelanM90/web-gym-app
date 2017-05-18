@@ -9,10 +9,13 @@ GET     /dashboard                                              Dashboard.index
 POST    /addassessment                                          Dashboard.addAssessment
 GET     /dashboard/{memberid}/deleteassessment/{assessmentid}   Dashboard.deleteAssessment
 
+GET     /profile                                                Profile.index
+
 GET     /signup                                                 Accounts.signup
 GET     /login                                                  Accounts.login
 GET     /logout                                                 Accounts.logout
 POST    /register                                               Accounts.register
+POST    /update/{memberid}                                      Accounts.update
 POST    /authenticate                                           Accounts.authenticate
 
 # Ignore favicon requests

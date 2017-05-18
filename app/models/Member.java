@@ -43,6 +43,35 @@ public class Member extends Model {
         this.height = height;
         this.startingWeight = startingWeight;
     }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    
+    public void setStartingWeight(double startingWeight) {
+        this.startingWeight = startingWeight;
+    }
+    
     public static Member findByEmail(String email)
     {
         return find("email", email).first();
@@ -224,11 +253,9 @@ public class Member extends Model {
         else if (deltaPrevious > deltaCurrent) {
             return "green tag label";
         }
-        else if (deltaCurrent == deltaPrevious) {
+        else {
             return "blue tag label";
-            
         }
-        return "dsjk";
     }
     
     public double idealBodyWeight() {

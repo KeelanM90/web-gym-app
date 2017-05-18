@@ -59,4 +59,26 @@ public class Accounts extends Controller {
         }
         return member;
     }
+    
+    public static void update(String name,
+                              String email,
+                              String password,
+                              String address,
+                              String gender,
+                              double height,
+                              double startingWeight) {
+        
+        Member member = Accounts.getLoggedInMember();
+        member.setName(name);
+        member.setEmail(email);
+        member.setPassword(password);
+        member.setAddress(address);
+        member.setGender(gender);
+        member.setHeight(height);
+        member.setStartingWeight(startingWeight);
+        member.save();
+        
+        Logger.info("Updating: " + member.name);
+        redirect("/profile");
+    }
 }
