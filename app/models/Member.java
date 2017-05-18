@@ -71,25 +71,9 @@ public class Member extends Model {
         else {
             weight = startingWeight;
         }
+      
+        double idealBodyWeight = idealBodyWeight();
         
-        double genderWeight = 0;
-        
-        double heightInInches = convertHeightMetresToInches();
-        if (heightInInches < 60)
-        {
-            heightInInches = 60;
-        }
-        
-        if (gender.equals("Male"))
-        {
-            genderWeight = 50;
-        }
-        else
-        {
-            genderWeight = 45.5;
-        }
-        
-        double idealBodyWeight = genderWeight + ((heightInInches - 60) * 2.3);
         if (weight >= (idealBodyWeight - 2) && weight <= (idealBodyWeight + 2)) {
             return "green";
         }
@@ -215,6 +199,7 @@ public class Member extends Model {
     
     public String findTrend(Assessment assessment) {
         double previousWeight = 0;
+        double idealBodyWeight = idealBodyWeight();
         
         if (sortedAssessments().indexOf(assessment) != assessments.size() - 1) {
             previousWeight = sortedAssessments().get(sortedAssessments().indexOf(assessment) + 1).weight;
@@ -222,15 +207,51 @@ public class Member extends Model {
         else {
             previousWeight = startingWeight;
         }
+    
+        double deltaCurrent = assessment.weight - idealBodyWeight;
+        double deltaPrevious = previousWeight - idealBodyWeight;
         
-        if (assessment.weight > previousWeight){
-            return "red arrow circle left";
+        if (deltaCurrent < 0) {
+            deltaCurrent = -deltaCurrent;
         }
-        else if (assessment.weight == previousWeight) {
-            return "blue circle";
+        if (deltaPrevious < 0) {
+            deltaPrevious = -deltaPrevious;
         }
-        else {
-            return "green arrow circle right";
+    
+        if (deltaPrevious < deltaCurrent){
+            return "red tag label";
+          }
+        else if (deltaPrevious > deltaCurrent) {
+            return "green tag label";
         }
+        else if (deltaCurrent == deltaPrevious) {
+            return "blue tag label";
+            
+        }
+        return "dsjk";
+    }
+    
+    public double idealBodyWeight() {
+    
+        double genderWeight = 0;
+    
+        double heightInInches = convertHeightMetresToInches();
+        if (heightInInches < 60)
+        {
+            heightInInches = 60;
+        }
+    
+        if (gender.equals("Male"))
+        {
+            genderWeight = 50;
+        }
+        else
+        {
+            genderWeight = 45.5;
+        }
+    
+        double idealBodyWeight = genderWeight + ((heightInInches - 60) * 2.3);
+        
+        return idealBodyWeight;
     }
 }

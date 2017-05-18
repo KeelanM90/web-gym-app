@@ -6,7 +6,7 @@ Assessment(a1):
   upperArm: 27
   waist: 38
   hips: 42
-  comment: You've made progress
+  comment: What happened?
 
 Assessment(a2):
   epoch: 1493044000000
@@ -18,6 +18,16 @@ Assessment(a2):
   hips: 42
   comment:
 
+Assessment(a3):
+  epoch: 1493041000000
+  weight: 126
+  chest: 44
+  thigh: 30
+  upperArm: 27
+  waist: 38
+  hips: 42
+  comment: Try eat more of homers donuts
+
 Member(m1):
   name: Homer Simpson
   email: homer@simpson.com
@@ -26,6 +36,18 @@ Member(m1):
   gender: Male
   height: 1.83
   startingWeight: 136
+  assessments:
+    - a1
+    - a2
+
+Member(m2):
+  name: Marge Simpson
+  email: marge@simpson.com
+  password: secret
+  address: Springfield
+  gender: Female
+  height: 1.70
+  startingWeight: 57
   assessments:
     - a1
     - a2
