@@ -21,4 +21,17 @@ public class ViewAssessments extends Controller {
         List<Assessment> assessments = member.assessments;
         render("viewassessments.html", trainer, member, assessments);
     }
+    
+    public static void updateComment(Long memberid, Long assessmentid, String comment) {
+        Logger.info("Rendering Assessments");
+        
+        Trainer trainer = Accounts.getLoggedInTrainer();
+        Member member = Member.findById(memberid);
+        Assessment assessment = Assessment.findById(assessmentid);
+        assessment.setComment(comment);
+        assessment.save();
+        
+        List<Assessment> assessments = member.assessments;
+        redirect("viewassessments.index", memberid);
+    }
 }

@@ -45,5 +45,9 @@ public class Assessment extends Model {
         DateFormat dateFormat = new SimpleDateFormat("d-MMM-yyyy HH:mm:ss");
         return dateFormat.format(epoch);
     }
+    
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }
 
