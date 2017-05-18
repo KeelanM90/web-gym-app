@@ -7,19 +7,19 @@ GET     /                                                       start.index
 
 GET     /dashboard                                              Dashboard.index
 GET     /trainerdashboard                                       TrainerDashboard.index
-POST    /addassessment                                          Dashboard.addAssessment
-GET     /dashboard/{memberid}/deleteassessment/{assessmentid}   Dashboard.deleteAssessment
-GET     /viewassessments/{memberid}                             ViewAssessments.index
-POST     /updateComment/{memberid}/{assessmentid}               ViewAssessments.updateComment
-
 GET     /profile                                                Profile.index
-
 GET     /signup                                                 Accounts.signup
 GET     /login                                                  Accounts.login
 GET     /logout                                                 Accounts.logout
+GET     /dashboard/{memberid}/deleteassessment/{assessmentid}   Dashboard.deleteAssessment
+GET     /viewassessments/{memberid}                             ViewAssessments.index
+GET     /deletemember/{memberid}                                TrainerDashboard.deleteMember
+
 POST    /register                                               Accounts.register
-POST    /update/{memberid}                                      Accounts.update
 POST    /authenticate                                           Accounts.authenticate
+POST    /addassessment                                          Dashboard.addAssessment
+POST    /update/{memberid}                                      Accounts.update
+POST    /updateComment/{memberid}/{assessmentid}                ViewAssessments.updateComment
 
 # Ignore favicon requests
 GET     /favicon.ico                                            404

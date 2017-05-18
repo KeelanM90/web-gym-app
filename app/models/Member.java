@@ -229,9 +229,11 @@ public class Member extends Model {
     public String findTrend(Assessment assessment) {
         double previousWeight = 0;
         double idealBodyWeight = idealBodyWeight();
+    
+        List<Assessment> sortedList = new ArrayList<Assessment>(sortedAssessments());
         
-        if (sortedAssessments().indexOf(assessment) != assessments.size() - 1) {
-            previousWeight = sortedAssessments().get(sortedAssessments().indexOf(assessment) + 1).weight;
+        if (sortedList.indexOf(assessment) != sortedList.size() - 1) {
+            previousWeight = sortedList.get(sortedList.indexOf(assessment) + 1).weight;
         }
         else {
             previousWeight = startingWeight;
@@ -259,7 +261,6 @@ public class Member extends Model {
     }
     
     public double idealBodyWeight() {
-    
         double genderWeight = 0;
     
         double heightInInches = convertHeightMetresToInches();
@@ -278,7 +279,6 @@ public class Member extends Model {
         }
     
         double idealBodyWeight = genderWeight + ((heightInInches - 60) * 2.3);
-        
         return idealBodyWeight;
     }
 }

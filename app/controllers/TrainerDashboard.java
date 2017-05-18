@@ -15,4 +15,11 @@ public class TrainerDashboard extends Controller {
         List<Member> members = Member.findAll();
         render("trainerdashboard.html", trainer, members);
     }
+    
+    public static void deleteMember (Long memberid) {
+        Member member = Member.findById(memberid);
+        member.delete();
+        
+        redirect("trainerdashboard.index");
+    }
 }
