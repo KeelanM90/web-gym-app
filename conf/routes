@@ -8,6 +8,7 @@ GET     /                                                       start.index
 GET     /dashboard                                              Dashboard.index
 GET     /trainerdashboard                                       TrainerDashboard.index
 GET     /profile                                                Profile.index
+GET     /about                                                  About.index
 GET     /signup                                                 Accounts.signup
 GET     /login                                                  Accounts.login
 GET     /logout                                                 Accounts.logout
