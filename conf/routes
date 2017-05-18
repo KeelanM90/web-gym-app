@@ -6,6 +6,7 @@
 GET     /                                                       start.index
 
 GET     /dashboard                                              Dashboard.index
+GET     /trainerdashboard                                       TrainerDashboard.index
 POST    /addassessment                                          Dashboard.addAssessment
 GET     /dashboard/{memberid}/deleteassessment/{assessmentid}   Dashboard.deleteAssessment
 

@@ -49,5 +49,9 @@ Member(m2):
   height: 1.70
   startingWeight: 57
   assessments:
-    - a1
-    - a2
+    - a3
+
+Trainer(t2):
+  name: Ned Flanders
+  email: ned@flanders.com
+  password: secret
