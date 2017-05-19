@@ -140,11 +140,7 @@ public class Member extends Model {
     
     /**
      * This method returns a string of semantic ui classes to indicate if the member has an
-     * ideal body weight based on the Devine formula.<br>
-     * For males, an ideal body weight is:     50 kg + 2.3 kg for each inch over 5 feet.<br>
-     * For females, an ideal body weight is:   45.5 kg + 2.3 kg for each inch over 5 feet.<br>
-     * <br>
-     * Note: if no gender is specified, return the result of the female calculation
+     * ideal body weight based on the Devine formula.
      *
      * @return returns a string of semantic classes based on the calculated idealBodyWeight.
      */
@@ -185,18 +181,18 @@ public class Member extends Model {
     }
     
     /**
-     * This method determines the BMI category that the member belongs to.<br>
-     * <br>
-     * The category is determined by the magnitude of the members BMI according to the following:<br>
-     * <br>
-     * BMI less than    15   (exclusive)                      is "VERY SEVERELY UNDERWEIGHT"<br>
-     * BMI between      15   (inclusive) and 16   (exclusive) is "SEVERELY UNDERWEIGHT"<br>
-     * BMI between      16   (inclusive) and 18.5 (exclusive) is "UNDERWEIGHT"<br>
-     * BMI between      18.5 (inclusive) and 25   (exclusive) is "NORMAL"<br>
-     * BMI between      25   (inclusive) and 30   (exclusive) is "OVERWEIGHT"<br>
-     * BMI between      30   (inclusive) and 35   (exclusive) is "MODERATELY OBESE"<br>
-     * BMI between      35   (inclusive) and 40   (exclusive) is "SEVERELY OBESE"<br>
-     * BMI greater than 40   (inclusive)                      is "VERY SEVERELY OBESE"<br>
+     * This method determines the BMI category that the member belongs to.
+     *
+     * The category is determined by the magnitude of the members BMI according to the following:
+     *
+     * BMI less than    15   (exclusive)                      is "VERY SEVERELY UNDERWEIGHT"
+     * BMI between      15   (inclusive) and 16   (exclusive) is "SEVERELY UNDERWEIGHT"
+     * BMI between      16   (inclusive) and 18.5 (exclusive) is "UNDERWEIGHT"
+     * BMI between      18.5 (inclusive) and 25   (exclusive) is "NORMAL"
+     * BMI between      25   (inclusive) and 30   (exclusive) is "OVERWEIGHT"
+     * BMI between      30   (inclusive) and 35   (exclusive) is "MODERATELY OBESE"
+     * BMI between      35   (inclusive) and 40   (exclusive) is "SEVERELY OBESE"
+     * BMI greater than 40   (inclusive)                      is "VERY SEVERELY OBESE"
      *
      * @return the BMI category that the member belongs to.
      */
@@ -276,6 +272,11 @@ public class Member extends Model {
      * in order to find which is trending closer towards the ideal body weight. This method takes into
      * whether a member is underweight or overweight and provides positive affirmation by way of a
      * semantic ui label in order to move them towards the ideal body weight.
+     *
+     * For males, an ideal body weight is:     50 kg + 2.3 kg for each inch over 5 feet.
+     * For females, an ideal body weight is:   45.5 kg + 2.3 kg for each inch over 5 feet.
+     *
+     * Note: if no gender is specified, return the result of the female calculation
      *
      * @param assessment the assessment to find a trend for
      * @return a semantic ui label style representing the trend
